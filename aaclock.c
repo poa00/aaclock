@@ -349,6 +349,11 @@ main (int argc, char *argv[])
 
   XGCValues gcv;
 
+#ifndef XFT
+  char *fontname;
+  XGCValues gcv_date;
+#endif
+
   g_position_x = 0;
   g_position_y = 300;
   g_size_x = MINIMIZED_SIZE_X;
@@ -356,9 +361,6 @@ main (int argc, char *argv[])
   g_minimized = 1;
   g_button1_pressed = 0;
 
-#ifndef XFT
-  char *fontname;
-#endif
 
 #ifdef COMMANDLINE_PARAMETERS
   /*commanline parameters */
@@ -415,7 +417,6 @@ main (int argc, char *argv[])
   g_gc =
     XCreateGC (g_display, g_root_win, GCFont | GCGraphicsExposures, &gcv);
 
-  XGCValues gcv_date;
   fontname = FONT_NAME_DATE;
   do
     {
