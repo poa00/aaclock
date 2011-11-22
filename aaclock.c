@@ -60,16 +60,16 @@ draw_clock (void)
   XftColor xft_color;
 #endif
 
-  unsigned char *time_string;	/*hh:mm:ss  */
-  unsigned char *day_string;	/*Feb  9    */
-  unsigned char *year_string;	/*2008      */
+  char *time_string;	/*hh:mm:ss  */
+  char *day_string;	/*Feb  9    */
+  char *year_string;	/*2008      */
 
   time_t now;
   now = time (0);
 
-  time_string = (unsigned char *) (ctime (&now) + 11);
-  day_string = (unsigned char *) (ctime (&now) + 4);
-  year_string = (unsigned char *) (ctime (&now) + 20);
+  time_string = ctime (&now) + 11;
+  day_string = ctime (&now) + 4;
+  year_string = ctime (&now) + 20;
 
   if (g_minimized)
     {
