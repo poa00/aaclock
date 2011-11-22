@@ -10,6 +10,4 @@ PROGNAME=aaclock
 
 $(PROGNAME): Makefile aaclock.c aaclock.h
 	$(CC)  aaclock.c -o $(PROGNAME) $(CFLAGS) $(LDFLAGS)
-	@ls -l $(PROGNAME)
 	strip $(PROGNAME)
-	@ls -l $(PROGNAME)
