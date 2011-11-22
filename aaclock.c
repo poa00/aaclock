@@ -115,9 +115,8 @@ draw_clock (void)
 #else
   XSetForeground (g_display, g_gc, select_color ("black"));
   XDrawString (g_display, g_main_win, g_gc, 1, 18, time_string, 8);
-  XSetForeground (g_display, g_gc2, select_color ("black"));
-  XDrawString (g_display, g_main_win, g_gc2, 1, 36, day_string, 6);
-  XDrawString (g_display, g_main_win, g_gc2, 50, 36, year_string, 4);
+  XDrawString (g_display, g_main_win, g_gc, 1, 36, day_string, 6);
+  XDrawString (g_display, g_main_win, g_gc, 55, 36, year_string, 4);
 #endif
 }
 
@@ -357,6 +356,10 @@ main (int argc, char *argv[])
   g_minimized = 1;
   g_button1_pressed = 0;
 
+#ifndef XFT
+  char *fontname;
+#endif
+
 #ifdef COMMANDLINE_PARAMETERS
   /*commanline parameters */
   int i;
@@ -394,9 +397,6 @@ main (int argc, char *argv[])
   g_root_win = RootWindow (g_display, g_screen);
 
 
-#ifndef XFT
-  char *fontname;
-#endif
 
 #ifdef XFT
   xfs_time = XftFontOpenName (g_display, g_screen, XFT_FONT_TIME);
@@ -410,7 +410,7 @@ main (int argc, char *argv[])
       fontname = "fixed";
     }
   while (!xfs_time);
-  //printf("fontname= %s\n",fontname);
+  /* printf("fontname= %s\n",fontname); */
   gcv.font = xfs_time->fid;
   g_gc =
     XCreateGC (g_display, g_root_win, GCFont | GCGraphicsExposures, &gcv);
