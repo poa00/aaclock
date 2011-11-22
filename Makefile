@@ -5,7 +5,7 @@ CFLAGS=-O2 -I/usr/include -I/usr/include/freetype2 -DXFT
 #-DCOMMANDLINE_PARAMETERS
 #COMMANDLINE_PARAMETERS: not any
 
-LDFLAGS= -L/usr/lib -lX11 -lXft -Wall -pedantic -ansi -o9
+LDFLAGS= -L/usr/lib -lX11 -lXft -Wall -pedantic -ansi
 PROGNAME=aaclock
 
 $(PROGNAME): Makefile aaclock.c aaclock.h
