@@ -1,6 +1,6 @@
 /*************************************************************
  *       aaclock                                             *
- *       v 1.0  (18. February 2008)                          *
+ *       v 1.1  (22. November 2011)                          *
  *       by Aapo Rantalainen                                 *
  *                                                           *
  *                                                           *
@@ -28,7 +28,7 @@
  *  FreeType rasterizer with the X Rendering Extension)      *
  *                                                           *
  ************************************************************/
-
+#define VERSION "1.1"
 #include <stdio.h>		/*debug messages */
 #include <time.h>
 #include <X11/Xutil.h>
@@ -369,12 +369,12 @@ main (int argc, char *argv[])
     {
       if (!strcmp (argv[i], "--version"))
 	{
-	  printf ("aaclock v:1.0\n");
+	  printf ("aaclock v:%s\n",VERSION);
 	  return 0;
 	}
       else if (!strcmp (argv[i], "--help"))
 	{
-	  printf ("aaclock v:1.0\n");
+	  printf ("aaclock v:%s\n",VERSION);
 	  printf
 	    ("There are no commandline parameters. All features are used in compile time.\n");
 	  return 0;
