@@ -9,7 +9,7 @@ LDFLAGS= -L/usr/lib -lX11 -lXft -Wall -pedantic -ansi -o9
 PROGNAME=aaclock
 
 $(PROGNAME): Makefile aaclock.c aaclock.h
-	$(CC) $(CFLAGS) $(LDFLAGS) aaclock.c -o $(PROGNAME)
+	$(CC)  aaclock.c -o $(PROGNAME) $(CFLAGS) $(LDFLAGS)
 	@ls -l $(PROGNAME)
 	strip $(PROGNAME)
 	@ls -l $(PROGNAME)
