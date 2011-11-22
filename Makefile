@@ -1,5 +1,6 @@
 CC=cc
-CFLAGS=-O2 -I/usr/include -I/usr/include/freetype2 -DXFT 
+CFLAGS=-O2 -I/usr/include -I/usr/include/freetype2
+#-DXFT
 #-DHELP_WITH_EVENTS
 #HELP_WITH_EVENTS: debugging and learning event-handling
 #-DCOMMANDLINE_PARAMETERS
