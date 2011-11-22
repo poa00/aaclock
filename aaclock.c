@@ -346,7 +346,6 @@ main (int argc, char *argv[])
   /*time */
   struct timeval tv;
   time_t now;
-  struct tm *lt;
   /*time */
 
   XGCValues gcv;
@@ -445,7 +444,7 @@ main (int argc, char *argv[])
       FD_ZERO (&fd);		/*clearing socket */
       FD_SET (xfd, &fd);	/*connect xfd to fd */
       now = time (0);		/*time */
-      lt = gmtime (&now);	/*gmtime */
+      gmtime (&now);	/*gmtime */
 
       /*How often we update the clock */
       tv.tv_usec = 100000;	/*microseconds, 1 second = 1 million microseconds */
