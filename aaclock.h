@@ -2,10 +2,10 @@
 #define MINIMIZED_SIZE_X 5	/*How many pixel are visible when clock is hiding */
 #define MAXIMIZED_SIZE_X 95	/*You should change fonts and text alignment same time with this */
 #define MINIMIZED_COLOR "grey" /**/
-#define BACKGROUND_COLOR "grey"	/*I suggest MINIMIZED_COLOR=BACKGROUND_COLOR (may flickers) */
+#define BACKGROUND_COLOR "grey"	/*I suggest MINIMIZED_COLOR=BACKGROUND_COLOR (may flicker) */
 #define BORDER_COLOR "blue"	/*When clock is locked on the screen there are borders. */
-int g_position_x;		/*current X-position, this is allways 0   */
-int g_position_y;		/*current Y-position, this changing       */
+int g_position_x;		/*current X-position, this is always 0   */
+int g_position_y;		/*current Y-position, this is changing       */
 int g_size_x;			/*width  of the window  */
 int g_size_y;			/*height of the window  */
 int g_dragging_y;		/*when user moves clock, we store the old position here */
