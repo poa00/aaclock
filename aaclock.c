@@ -60,16 +60,16 @@ draw_clock (void)
   XftColor xft_color;
 #endif
 
-  char *time_string;	/*hh:mm:ss  */
-  char *day_string;	/*Feb  9    */
-  char *year_string;	/*2008      */
+  unsigned char* time_string;	/*hh:mm:ss  */
+  unsigned char* day_string;	/*Feb  9    */
+  unsigned char* year_string;	/*2008      */
 
   time_t now;
   now = time (0);
 
-  time_string = ctime (&now) + 11;
-  day_string = ctime (&now) + 4;
-  year_string = ctime (&now) + 20;
+  time_string = (unsigned char*) ctime (&now) + 11;
+  day_string = (unsigned char*) ctime (&now) + 4;
+  year_string = (unsigned char*) ctime (&now) + 20;
 
   if (g_minimized)
     {
@@ -108,10 +108,9 @@ draw_clock (void)
   xft_color.color.blue = 0;
 
   XftDrawStringUtf8 (xftdraw, &xft_color, xfs_time, 1, 20, time_string, 8);
-  /*fix, tasta tulee viela warning */
-  /*XftDrawStringUtf8 (xftdraw, &xft_color, xfs_time, +1,  +20, "007007007", +8); */
   XftDrawStringUtf8 (xftdraw, &xft_color, xfs_date, 5, 36, day_string, 6);
   XftDrawStringUtf8 (xftdraw, &xft_color, xfs_date, 55, 36, year_string, 4);
+
 #else
   XSetForeground (g_display, g_gc, select_color ("black"));
   XDrawString (g_display, g_main_win, g_gc, 1, 18, time_string, 8);
